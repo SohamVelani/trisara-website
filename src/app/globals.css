@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-trisara-light text-gray-800 font-sans;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold leading-tight;
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  ::selection {
+    background: hsl(175, 50%, 42%, 0.25);
+  }
+}
+
+/* ─── Components ────────────────────────────────────────────────────────────── */
+@layer components {
+  /* Gradient text utility */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(210, 60%, 55%) 0%, hsl(175, 50%, 48%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-light {
+    background: linear-gradient(135deg, hsl(210, 70%, 75%) 0%, hsl(175, 55%, 65%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Brand button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white
+           bg-gradient-brand shadow-brand
+           transition-all duration-300 ease-smooth
+           hover:shadow-brand-teal hover:scale-[1.02] hover:brightness-110
+           focus:outline-none focus:ring-2 focus:ring-trisara-blue-400 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold
+           border-2 border-trisara-blue-500 text-trisara-blue-600
+           transition-all duration-300 ease-smooth
+           hover:bg-trisara-blue-500 hover:text-white hover:scale-[1.02]
+           focus:outline-none focus:ring-2 focus:ring-trisara-blue-400 focus:ring-offset-2;
+  }
+
+  .btn-primary-light {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold
+           bg-white text-trisara-blue-600 shadow-card
+           transition-all duration-300 ease-smooth
+           hover:shadow-card-hover hover:scale-[1.02]
+           focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
+  }
+
+  /* Section wrapper */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Card base */
+  .card-base {
+    @apply bg-white rounded-2xl p-6 shadow-card border border-gray-100
+           transition-all duration-300 ease-smooth
+           hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  /* Icon circle */
+  .icon-circle {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center
+           bg-gradient-brand-soft text-trisara-blue-600;
+  }
+
+  /* Dark section base */
+  .section-dark {
+    @apply bg-trisara-dark text-white;
+  }
+
+  /* Subtle divider */
+  .divider-brand {
+    @apply h-1 w-16 rounded-full bg-gradient-brand;
+  }
+
+  /* Stat number */
+  .stat-number {
+    @apply text-3xl font-bold text-gradient;
+  }
+}
+
+/* ─── Scroll-reveal initial state (animated by AnimateOnScroll component) ──── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger delays for grid children */
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.10s; }
+.stagger-3 { transition-delay: 0.15s; }
+.stagger-4 { transition-delay: 0.20s; }
+.stagger-5 { transition-delay: 0.25s; }
+.stagger-6 { transition-delay: 0.30s; }

@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const footerLinks = [
   { label: 'Home', href: '/' },
+  { label: 'Job Postings', href: '/jobs' },
   { label: 'About Us', href: '/about' },
   { label: 'Contact Us', href: '/contact' },
 ];
@@ -14,11 +16,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center shadow-brand">
-                <span className="text-white font-bold text-sm">T</span>
+            <div className="flex items-center gap-3 mb-4">
+              {/* Logo mark — uploaded image */}
+              <div className="w-10 h-10 flex-shrink-0">
+                <Image
+                  src="/logo.png"
+                  alt="TRISARA logo mark"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <span className="font-bold text-xl tracking-widest">TRISARA</span>
+              <span className="font-bold text-xl tracking-[0.3em] uppercase" style={{ fontFamily: 'var(--font-jost)', fontWeight: 300 }}>TRISΛRΛ</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Your Recruitment Partner — helping growing businesses hire
@@ -43,6 +52,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/admin/login"
+                  className="text-white/20 hover:text-white/50 text-xs transition-colors duration-200"
+                >
+                  Admin Login
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -68,10 +85,10 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <a
-                  href="tel:9820178753"
+                  href="tel:+919820178753"
                   className="text-gray-400 hover:text-white text-sm transition-colors duration-200"
                 >
-                  9820178753
+                  +91 98201 78753
                 </a>
               </li>
               <li className="flex items-start gap-3">

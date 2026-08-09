@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { label: 'Home', href: '/' },
+  { label: 'Job Postings', href: '/jobs' },
   { label: 'About Us', href: '/about' },
   { label: 'Contact Us', href: '/contact' },
 ];
@@ -35,14 +37,15 @@ export default function Navbar() {
           {/* Logo / Wordmark */}
           <Link
             href="/"
-            className="flex items-center gap-2 group"
+            className="flex items-center group"
             aria-label="TRISARA — Home"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center shadow-brand group-hover:scale-105 transition-transform duration-200">
-              <span className="text-white font-bold text-sm">T</span>
-            </div>
-            <span className="text-white font-bold text-xl tracking-widest">
-              TRISARA
+            {/* Wordmark — Jost Light with wide tracking and Λ instead of A to match logo typography */}
+            <span
+              className="text-white text-xl uppercase tracking-[0.3em]"
+              style={{ fontFamily: 'var(--font-jost)', fontWeight: 300 }}
+            >
+              TRISΛRΛ
             </span>
           </Link>
 
@@ -96,7 +99,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`md:hidden transition-all duration-300 overflow-hidden bg-trisara-dark/97 backdrop-blur-md ${
-          mobileOpen ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'
+          mobileOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <nav className="section-container py-4 flex flex-col gap-2" aria-label="Mobile navigation">

@@ -1,13 +1,20 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Jost } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
+import LayoutWrapper from '@/components/layout/LayoutWrapper';
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+});
+
+/** Jost — closest free match to the geometric thin-tracked wordmark in the logo */
+const jost = Jost({
+  subsets: ['latin'],
+  weight: ['200', '300'],
+  display: 'swap',
+  variable: '--font-jost',
 });
 
 export const metadata: Metadata = {
@@ -64,11 +71,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${jost.variable}`}>
       <body className="font-sans antialiased">
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

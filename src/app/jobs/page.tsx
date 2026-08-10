@@ -4,6 +4,7 @@ import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import SectionHeading from '@/components/ui/SectionHeading';
 import dbConnect from '@/lib/mongodb';
 import Job from '@/models/Job';
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Job Postings | Trisara HR Solutions',

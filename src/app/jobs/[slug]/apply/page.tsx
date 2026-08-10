@@ -5,6 +5,7 @@ import ApplicationForm from '@/components/jobs/ApplicationForm';
 import Link from 'next/link';
 import dbConnect from '@/lib/mongodb';
 import Job from '@/models/Job';
+export const dynamic = 'force-dynamic';
 
 type Props = {
   params: Promise<{ slug: string }>;

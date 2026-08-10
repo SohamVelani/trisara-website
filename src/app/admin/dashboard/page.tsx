@@ -2,6 +2,7 @@ import Link from 'next/link';
 import dbConnect from '@/lib/mongodb';
 import Job from '@/models/Job';
 import DashboardClient from './DashboardClient';
+export const dynamic = 'force-dynamic';
 
 async function getJobs() {
   await dbConnect();

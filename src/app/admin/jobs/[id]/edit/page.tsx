@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import dbConnect from '@/lib/mongodb';
 import Job from '@/models/Job';
 import JobForm from '@/components/admin/JobForm';
+export const dynamic = 'force-dynamic';
 
 type Props = { params: Promise<{ id: string }> };
 
